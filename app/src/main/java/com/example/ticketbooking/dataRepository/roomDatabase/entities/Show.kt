@@ -9,8 +9,12 @@ import androidx.room.*
                 parentColumns = ["id"],
                 childColumns = ["currentlyPlayingMovieId"] ), ]
 )
-class Show (val currentlyPlayingMovie: Int,
-            val time: String)
+class Show (val currentlyPlayingMovieId: Int,
+            val time: String,
+            var normalSeatsCount: Int,
+            var luxurySeatsCount: Int,
+            var normalSeatFare: Double,
+            var luxurySeatFare: Double )
 {
     @PrimaryKey(autoGenerate = true)
     var id:Int = 0
