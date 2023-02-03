@@ -6,6 +6,7 @@ import java.util.*
 
 
 data class Movie(
+    val id:Int,
     val movieName: String,
     val language: String,
     val sensorCertificate: Certificate,

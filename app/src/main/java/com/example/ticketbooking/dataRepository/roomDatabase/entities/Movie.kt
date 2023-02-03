@@ -6,16 +6,17 @@ import androidx.room.*
 @Entity(
     tableName = "movie_table",
 )
-class Movie(val movieName: String,
-            val language: String,
+class Movie(var movieName: String,
+            var language: String,
             var sensorCertificate: String,
             var synopsis: String,
             var genre: String,
             var releaseDate: String,
-            val hero:String?,
-            val heroine:String?,
-            val villain:String? )
+            var hero:String?,
+            var heroine:String?,
+            var villain:String?,
+            var isFavouriteMovie: Boolean)
 {
     @PrimaryKey(autoGenerate = true)
-    val id:Int = 0
+    var id:Int = 0
 }

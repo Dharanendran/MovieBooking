@@ -1,7 +1,6 @@
 package com.example.ticketbooking.dataRepository.roomDatabase.entities
 
 import androidx.room.*
-import com.example.ticketbooking.domain.businessModels.enums.Amenity
 
 @Entity(
     tableName = "theatre_amenity_linker_table",
@@ -21,5 +20,9 @@ import com.example.ticketbooking.domain.businessModels.enums.Amenity
     ]
     )
 
-class TheatreAmenityLinker(val theatreId:Int,
-                           val amenityId:Int )
+class TheatreAmenityLinker(var theatreId:Int,
+                           var amenityId:Int )
+{
+    @PrimaryKey(autoGenerate = true)
+    var id:Int = 0
+}

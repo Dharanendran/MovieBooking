@@ -10,3 +10,7 @@ open class Payment(
     val charges: Double,
     val totalCost: Double
 )
+{
+    val id:Int = 0
+
+}

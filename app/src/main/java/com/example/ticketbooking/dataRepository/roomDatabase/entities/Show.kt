@@ -9,8 +9,8 @@ import androidx.room.*
                 parentColumns = ["id"],
                 childColumns = ["currentlyPlayingMovieId"] ), ]
 )
-class Show (val currentlyPlayingMovieId: Int,
-            val time: String,
+class Show (var currentlyPlayingMovieId: Int,
+            var time: String,
             var normalSeatsCount: Int,
             var luxurySeatsCount: Int,
             var normalSeatFare: Double,

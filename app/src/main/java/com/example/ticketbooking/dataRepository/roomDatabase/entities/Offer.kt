@@ -14,11 +14,11 @@ import androidx.room.*
 
 )
 class Offer (
-    val userId: Int,
-    val brandName: String,
-    val offerName: String,
-    val promoCode: String,
-    val validUpto: String
+    var userId: Int,
+    var brandName: String,
+    var offerName: String,
+    var promoCode: String,
+    var validUpto: String
 )
 {
     @PrimaryKey(autoGenerate = true)

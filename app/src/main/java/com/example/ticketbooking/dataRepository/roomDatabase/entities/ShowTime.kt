@@ -11,9 +11,9 @@ import androidx.room.*
             childColumns = ["showId"])]
 )
 
-class ShowTime (val time: String,
-                val showId: Int )
+class ShowTime (var time: String,
+                var showId: Int )
 {
     @PrimaryKey(autoGenerate = true)
-    val id:Int = 0
+    var id:Int = 0
 }

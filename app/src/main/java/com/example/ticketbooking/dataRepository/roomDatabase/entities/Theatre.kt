@@ -8,7 +8,7 @@ class Theatre(var theatreName: String,
               var street: String,
               var area: String,
               var city: String,
-              var isFavourite: Boolean )
+              var isFavouriteTheatre: Boolean )
 {
     @PrimaryKey(autoGenerate = true)
     var id:Int = 0

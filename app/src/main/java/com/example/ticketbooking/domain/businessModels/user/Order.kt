@@ -6,6 +6,7 @@ import com.example.ticketbooking.domain.businessModels.theatre.Movie
 import java.util.Date
 
 data class Order(
+    val id:Int,
     var movie: Movie,
     var date: Date,
     var theatre: Theatre,

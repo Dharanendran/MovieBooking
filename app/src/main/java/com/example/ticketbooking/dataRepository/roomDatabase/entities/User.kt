@@ -4,21 +4,13 @@ import androidx.room.*
 
 @Entity(
     tableName = "user_table",
-    indices = [Index(value=["credentialId","id"], unique = true)],
-    foreignKeys = [
-        ForeignKey(
-        entity = UserCredential::class,
-        parentColumns = ["id"],
-        childColumns = ["credentialId"],
-        onDelete = ForeignKey.CASCADE)]
 )
-class User(val name:String,
-           val phoneNO:String,
-           val mailId:String,
-           val profilePicture:String,
-           val credentialId:Int,
+class User(var name:String,
+           var phoneNO:String,
+           var mailId:String,
+           var profilePicture:String,
 )
 {
     @PrimaryKey(autoGenerate = true)
-    val id:Int = 0
+    var id:Int = 0
 }

@@ -4,7 +4,7 @@ import androidx.room.*
 
 
 @Entity(
-    tableName = "seat_table",
+    tableName = "booking_table",
     foreignKeys = [
         ForeignKey(
             entity = ShowTime::class,
