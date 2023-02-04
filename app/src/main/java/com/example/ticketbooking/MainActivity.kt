@@ -11,12 +11,12 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-interface Response{
-    fun <T> onSuccess(data:T)
-    fun <T> onFailure(error:T)
+interface Response {
+    fun <T> onSuccess(data: T)
+    fun <T> onFailure(error: T)
 }
 
-class MainActivity : AppCompatActivity(),Response{
+class MainActivity : AppCompatActivity(), Response {
 
     init {
 
@@ -26,17 +26,26 @@ class MainActivity : AppCompatActivity(),Response{
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        CoroutineScope(Dispatchers.IO).launch {
-            val name:String =""
-            MovieDataBase.getInstance(applicationContext,this@MainActivity)
-        }
+//        CoroutineScope(Dispatchers.IO).launch {
+//            val name:String =""
+//            MovieDataBase.getInstance(applicationContext,this@MainActivity)
+//        }
+
+        getNumbers().forEach {  println(it) }
 
     }
 
+    fun getNumbers(): Sequence<Int> = sequence {
+        for (i in 1..10) {
+            Thread.sleep(1000)
+            yield(i)
+        }
+    }
+
     override fun <T> onSuccess(data: T) {
-        var msg=""
-        msg = if(data is String) data else data.toString()
-        Toast.makeText(this.applicationContext,msg,Toast.LENGTH_SHORT).show()
+        var msg = ""
+        msg = if (data is String) data else data.toString()
+        Toast.makeText(this.applicationContext, msg, Toast.LENGTH_SHORT).show()
     }
 
     override fun <T> onFailure(error: T) {
