@@ -7,10 +7,7 @@ import com.example.roomdatabase.R
 import com.example.ticketbooking.dataRepository.roomDatabase.MovieDataBase
 import com.example.ticketbooking.dataRepository.roomDatabase.entities.User
 import com.example.ticketbooking.dataRepository.roomDatabase.entities.*
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
+import kotlinx.coroutines.*
 
 interface Response {
     fun <T> onSuccess(data: T)
@@ -31,8 +28,7 @@ class MainActivity : AppCompatActivity() {
         var job = CoroutineScope(Dispatchers.IO).launch {
             val db = MovieDataBase.getInstance(applicationContext)
             db?.let{
-                it.getUserDao().deleteUser(User(1,"","dc","",""))
-                msg = it.getOrderDao().getUserSpecificOrder(1).size.toString()
+                msg = it.getUserDao().getUsers().size.toString()
 //                val userId = it.getUserDao().insertUser(User(name = "name", phoneNO = "123456789", mailId = "ghiyiug", profilePicture = "khbjhhj"))
 //                it.getUserCredentialDao().insertUserAccount(UserCredential(userId = userId, userName = "sampleum", password = "samplepwd"))
 //                it.getOfferDao().insertOffer(Offer(userId=userId, brandName = "paytm", offerName = "cashback", promoCode = "promocode", validUpto = "2023"))
@@ -45,6 +41,7 @@ class MainActivity : AppCompatActivity() {
             }
 
         }
+
     }
 
 
