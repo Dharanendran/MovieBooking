@@ -10,7 +10,8 @@ import androidx.room.*
             entity = ShowTime::class,
             parentColumns = ["id"],
             childColumns = ["showTimeId"],
-            onDelete = ForeignKey.CASCADE),
+            onDelete = ForeignKey.CASCADE
+        ),
         ForeignKey(
             entity = User::class,
             parentColumns = ["id"],
@@ -18,10 +19,10 @@ import androidx.room.*
             onDelete = ForeignKey.CASCADE
         )]
 )
-class Booking (var showTimeId: Int,
-               var userId: Int,
-               var seatNo: String )
-{
+class Booking(
     @PrimaryKey(autoGenerate = true)
-    var id:Int = 0
-}
+    var id: Long = 0,
+    var showTimeId: Long,
+    var userId: Long,
+    var seatNo: String
+)

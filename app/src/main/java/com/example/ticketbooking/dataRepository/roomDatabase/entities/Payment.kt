@@ -5,6 +5,8 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "payment_table")
 class Payment(
+    @PrimaryKey(autoGenerate = true)
+    var id:Long = 0,
     var gateWayName:String,
     var status:String,
     var referenceNo:String,
@@ -13,6 +15,5 @@ class Payment(
     var totalCost:Double
 )
 {
-    @PrimaryKey(autoGenerate = true)
-    var id:Int = 0
+
 }

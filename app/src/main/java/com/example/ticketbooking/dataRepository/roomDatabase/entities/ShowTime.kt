@@ -8,12 +8,14 @@ import androidx.room.*
         ForeignKey(
             entity = Show::class,
             parentColumns = ["id"],
-            childColumns = ["showId"])]
+            childColumns = ["showId"],
+            onDelete = ForeignKey.CASCADE
+        )]
 )
 
-class ShowTime (var time: String,
-                var showId: Int )
-{
+class ShowTime(
     @PrimaryKey(autoGenerate = true)
-    var id:Int = 0
-}
+    var id: Long = 0,
+    var time: String,
+    var showId: Long
+)

@@ -10,7 +10,7 @@ interface AmenityDao {
     suspend fun getAmenities():List<Amenity>
 
     @Insert( onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertAmenity(amenity: Amenity)
+    suspend fun insertAmenity(amenity: Amenity):Long
 
     @Delete
     suspend fun deleteAmenity(amenity: Amenity)

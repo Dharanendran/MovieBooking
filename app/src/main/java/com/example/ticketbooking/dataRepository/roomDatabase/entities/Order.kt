@@ -8,16 +8,17 @@ import androidx.room.*
         ForeignKey(
             entity = User::class,
             parentColumns = ["id"],
-            childColumns = ["userId"]
+            childColumns = ["userId"],
+            onDelete = ForeignKey.CASCADE
         )]
 )
-class Order(var userId: Int,
-            var movieId: Int,
-            var theatreId: Int,
-            var paymentId: Int,
-            var screenName: String,
-            var ticketNo: String )
-{
+class Order(
     @PrimaryKey(autoGenerate = true)
-    var id:Int = 0
-}
+    var id: Long = 0,
+    var userId: Long,
+    var movieId: Long,
+    var theatreId: Long,
+    var paymentId: Long,
+    var screenName: String,
+    var ticketNo: String
+)

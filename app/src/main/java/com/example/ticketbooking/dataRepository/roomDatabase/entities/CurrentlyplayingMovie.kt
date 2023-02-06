@@ -9,13 +9,14 @@ import androidx.room.*
         ForeignKey(
             entity = Theatre::class,
             parentColumns = ["id"],
-            childColumns = ["theatreId"]
+            childColumns = ["theatreId"],
+            onDelete = ForeignKey.CASCADE
         )
     ]
 )
-data class CurrentlyPlayingMovie(var theatreId: Int,
-                                 var date: String )
-{
+data class CurrentlyPlayingMovie(
     @PrimaryKey(autoGenerate = true)
-    var id:Int = 0
-}
+    var id: Long = 0,
+    var theatreId: Long,
+    var date: String
+)

@@ -13,14 +13,12 @@ import androidx.room.*
     )]
 
 )
-class Offer (
-    var userId: Int,
+class Offer(
+    @PrimaryKey(autoGenerate = true)
+    var id: Long = 0,
+    var userId: Long,
     var brandName: String,
     var offerName: String,
     var promoCode: String,
     var validUpto: String
 )
-{
-    @PrimaryKey(autoGenerate = true)
-    var id:Int = 0
-}

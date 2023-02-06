@@ -5,12 +5,11 @@ import androidx.room.*
 @Entity(
     tableName = "user_table",
 )
-class User(var name:String,
-           var phoneNO:String,
-           var mailId:String,
-           var profilePicture:String,
-)
-{
+class User(
     @PrimaryKey(autoGenerate = true)
-    var id:Int = 0
-}
+    var id: Long = 0,
+    var name: String,
+    var phoneNO: String,
+    var mailId: String,
+    var profilePicture: String,
+)

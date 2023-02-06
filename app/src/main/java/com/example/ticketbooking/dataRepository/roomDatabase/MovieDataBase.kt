@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
 import com.example.ticketbooking.Response
 import com.example.ticketbooking.dataRepository.roomDatabase.daos.*
 import com.example.ticketbooking.dataRepository.roomDatabase.entities.*
@@ -27,7 +28,7 @@ import kotlinx.coroutines.withContext
         Theatre::class,
         TheatreAmenityLinker::class,
         UserCredential::class ],
-    version = 1
+    version = 4
 )
 abstract class MovieDataBase: RoomDatabase() {
 
@@ -53,7 +54,7 @@ abstract class MovieDataBase: RoomDatabase() {
 
         }
 
-        suspend fun getInstance(applicationContext: Context ,response: Response):MovieDataBase?
+        suspend fun getInstance(applicationContext: Context):MovieDataBase?
         {
             instance?:let{
                 mutex.withLock{
@@ -66,10 +67,7 @@ abstract class MovieDataBase: RoomDatabase() {
                     }
                 }
             }
-            withContext(Dispatchers.Main){
-                response.onSuccess(1.767)
-                response.onFailure(NoResponseException("no result is found"))
-            }
+
             return instance
         }
     }
