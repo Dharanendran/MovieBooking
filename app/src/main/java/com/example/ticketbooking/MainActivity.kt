@@ -1,67 +1,73 @@
 package com.example.ticketbooking
 
+import android.content.ClipData
+import android.content.Context
+import android.content.Intent
+import android.content.res.ColorStateList
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.MenuItem
+import android.view.View
+import android.widget.Button
 import android.widget.Toast
-import com.example.roomdatabase.R
+import android.widget.ToggleButton
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.viewpager.widget.ViewPager
 import com.example.ticketbooking.dataRepository.roomDatabase.MovieDataBase
-import com.example.ticketbooking.dataRepository.roomDatabase.entities.User
-import com.example.ticketbooking.dataRepository.roomDatabase.entities.*
-import kotlinx.coroutines.*
+import com.google.android.material.bottomnavigation.BottomNavigationItemView
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.navigation.NavigationBarMenuView
+import com.google.android.material.navigation.NavigationBarView
+import com.google.android.material.navigation.NavigationBarView.OnItemSelectedListener
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
-interface Response {
-    fun <T> onSuccess(data: T)
-    fun <T> onFailure(error: T)
-}
+//interface Response {
+//    fun <T> onSuccess(data: T)
+//    fun <T> onFailure(error: T)
+//}
+
+//var isDarkModeEnabled  = false
 
 class MainActivity : AppCompatActivity() {
 
-    init {
+    private lateinit var bottomNavView:BottomNavigationView
 
-    }
+    private lateinit var navIconMovie:BottomNavigationItemView
+    private lateinit var navIconTheatre:BottomNavigationItemView
+    private lateinit var navIconOrder:BottomNavigationItemView
+    private lateinit var navIconProfile:BottomNavigationItemView
+
+    lateinit var viewPager:ViewPager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
 
-        var msg = ""
-        var job = CoroutineScope(Dispatchers.IO).launch {
-            val db = MovieDataBase.getInstance(applicationContext)
-            db?.let{
-                msg = it.getUserDao().getUsers().size.toString()
-//                val userId = it.getUserDao().insertUser(User(name = "name", phoneNO = "123456789", mailId = "ghiyiug", profilePicture = "khbjhhj"))
-//                it.getUserCredentialDao().insertUserAccount(UserCredential(userId = userId, userName = "sampleum", password = "samplepwd"))
-//                it.getOfferDao().insertOffer(Offer(userId=userId, brandName = "paytm", offerName = "cashback", promoCode = "promocode", validUpto = "2023"))
-//                val movieId = it.getMovieDao().insertMovie(Movie(movieName = "unknown", language = "tamil", sensorCertificate = "U", synopsis = "a good movie", genre = "comedy", hero = "unknown", heroine = "unknown", villain = "unknown", releaseDate = "unknown", isFavouriteMovie = true))
-//                val theatreId = it.getTheatreDao().insertTheatre(Theatre(theatreName = "rohini theatre", doorNo = "no25b", street = "street1", area = "wefhwge", city = "efouhwgf", isFavouriteTheatre = true))
-//                val paymentId = it.getPaymentDao().insertPayment(Payment( gateWayName = "upi", status = "pending", referenceNo = "refno1", movieCost = 120.00, charges = 10.00, totalCost = 130.00))
-//                it.getOrderDao().insertOrder(Order(userId = userId, movieId = movieId, theatreId = theatreId, paymentId = paymentId, screenName = "dummyscreen", ticketNo = "ticket1"))
-//                msg = it.getOfferDao().getOffers(userId.toInt()).size.toString()
-                withContext(Dispatchers.Main){  Toast.makeText(applicationContext,msg,Toast.LENGTH_LONG).show() }
-            }
+        val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+        val view = inflater.inflate(R.layout.fragment_login, null)
+        setContentView(view)
 
-        }
+        val intent = Intent(this.applicationContext, SignInActivity::class.java)
+        startActivity(intent)
 
     }
 
-
-//    override fun <T> onSuccess(data: T) {
-//        var msg = ""
-//        msg = if (data is String) data else data.toString()
-//        Toast.makeText(this.applicationContext, msg, Toast.LENGTH_SHORT).show()
-//    }
-//
-//    override fun <T> onFailure(error: T) {
-//
-//    }
-
-//    override fun onSuccess(data: String) {
-//        Toast.makeText(this.applicationContext,data,Toast.LENGTH_SHORT).show()
-//    }
-//
-//    override fun onFailure(error: Throwable) {
-//        Toast.makeText(this.applicationContext,error.message,Toast.LENGTH_SHORT).show()
-//    }
-
-
 }
+
+//class D(private var context: Context) : Response {
+//
+//
+//    override fun <T> onSuccess(data: T) {
+//        println(data)
+//        Toast.makeText(context, (data is Int).toString(), Toast.LENGTH_LONG).show()
+//        println(data!!::class.java.simpleName)
+//    }
+//
+//
+//    override fun<T> onFailure(error: T) {
+//        println(this::class.simpleName)
+//    }
+//
+//}

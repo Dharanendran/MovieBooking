@@ -12,6 +12,7 @@ import androidx.room.*
             onDelete = ForeignKey.CASCADE
         )]
 )
+
 class Order(
     @PrimaryKey(autoGenerate = true)
     var id: Long = 0,
