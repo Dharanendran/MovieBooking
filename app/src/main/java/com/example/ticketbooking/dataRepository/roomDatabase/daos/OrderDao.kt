@@ -9,7 +9,6 @@ interface OrderDao {
 
     data class OrderResultType(
         var screenName: String,
-        var ticketNo: String,
         var movieName: String,
         var language: String,
         var sensorCertificate: String,
@@ -34,7 +33,7 @@ interface OrderDao {
 
 
     @Query(
-        "SELECT screenName,ticketNo,movieName,language,sensorCertificate,synopsis,genre,releaseDate,hero," +
+        "SELECT screenName,movieName,language,sensorCertificate,synopsis,genre,releaseDate,hero," +
                 "heroine,villain,theatreName,doorNo,street,area,city,gateWayName,status,referenceNo,movieCost,charges,totalCost" +
                 " FROM ORDER_TABLE " +
                 "INNER JOIN MOVIE_TABLE ON MOVIE_TABLE.id=ORDER_TABLE.movieId " +

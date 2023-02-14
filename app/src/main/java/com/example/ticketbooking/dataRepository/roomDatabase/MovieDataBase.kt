@@ -48,7 +48,7 @@ abstract class MovieDataBase : RoomDatabase() {
     abstract fun getBookingDao(): BookingDao
     abstract fun getFavouriteMovieDao(): FavouriteMovieDao
     abstract fun getFavouriteTheatreDao(): FavouriteTheatreDao
-    abstract fun getTheatreNumberDao():TheatreNumberDao
+    abstract fun getTicketNumberDao():TicketNumberDao
 
     companion object {
         private val mutex = Mutex()
