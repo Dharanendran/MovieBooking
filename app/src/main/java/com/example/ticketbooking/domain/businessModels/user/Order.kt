@@ -15,3 +15,6 @@ data class Order(
     var isFavouriteL: Boolean,
     var payment: Payment
 )
+{
+    val tickets by lazy{ mutableListOf<String>() }
+}

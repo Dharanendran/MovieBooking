@@ -13,5 +13,4 @@ class Theatre(
     var street: String,
     var area: String,
     var city: String,
-    var isFavouriteTheatre: Boolean
 )

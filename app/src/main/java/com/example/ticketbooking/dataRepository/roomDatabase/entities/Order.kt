@@ -10,7 +10,8 @@ import androidx.room.*
             parentColumns = ["id"],
             childColumns = ["userId"],
             onDelete = ForeignKey.CASCADE
-        )]
+        )
+    ]
 )
 
 class Order(
@@ -20,6 +21,5 @@ class Order(
     var movieId: Long,
     var theatreId: Long,
     var paymentId: Long,
-    var screenName: String,
-    var ticketNo: String
+    var screenName: String
 )

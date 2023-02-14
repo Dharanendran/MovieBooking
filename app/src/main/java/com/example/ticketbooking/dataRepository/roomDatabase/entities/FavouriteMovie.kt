@@ -4,26 +4,26 @@ import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 
+
 @Entity(
-    tableName = "favourite_theatres",
+    tableName = "favourite_movies_table",
     foreignKeys = [
         ForeignKey(
             entity = User::class,
             parentColumns = ["id"],
             childColumns = ["userId"],
-            onDelete = ForeignKey.CASCADE
-        ),
+            onDelete = ForeignKey.CASCADE ),
         ForeignKey(
-            entity = Theatre::class,
+            entity = Movie::class,
             parentColumns = ["id"],
-            childColumns = ["theatreId"],
+            childColumns = ["movieId"],
             onDelete = ForeignKey.CASCADE
         )
     ]
 )
-data class FavouriteTheatres(
+data class FavouriteMovie(
     var userId:Long,
-    var theatreId:Long
+    var movieId:Long
 )
 {
     @PrimaryKey(autoGenerate = true)

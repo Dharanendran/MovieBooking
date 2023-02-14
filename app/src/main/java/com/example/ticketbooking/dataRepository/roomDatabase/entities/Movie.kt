@@ -18,5 +18,4 @@ class Movie(
     var hero: String?,
     var heroine: String?,
     var villain: String?,
-    var isFavouriteMovie: Boolean
 )

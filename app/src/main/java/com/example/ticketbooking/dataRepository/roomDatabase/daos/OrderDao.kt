@@ -19,13 +19,11 @@ interface OrderDao {
         var hero: String?,
         var heroine: String?,
         var villain: String?,
-        var isFavouriteMovie: Boolean,
         var theatreName: String,
         var doorNo: String,
         var street: String,
         var area: String,
         var city: String,
-        var isFavouriteTheatre: Boolean,
         var gateWayName: String,
         var status: String,
         var referenceNo: String,
@@ -37,7 +35,7 @@ interface OrderDao {
 
     @Query(
         "SELECT screenName,ticketNo,movieName,language,sensorCertificate,synopsis,genre,releaseDate,hero," +
-                "heroine,villain,isFavouriteMovie,theatreName,doorNo,street,area,city,isFavouriteTheatre,gateWayName,status,referenceNo,movieCost,charges,totalCost" +
+                "heroine,villain,theatreName,doorNo,street,area,city,gateWayName,status,referenceNo,movieCost,charges,totalCost" +
                 " FROM ORDER_TABLE " +
                 "INNER JOIN MOVIE_TABLE ON MOVIE_TABLE.id=ORDER_TABLE.movieId " +
                 "INNER JOIN THEATRE_TABLE ON THEATRE_TABLE.id=ORDER_TABLE.theatreId " +
