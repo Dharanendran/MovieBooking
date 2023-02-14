@@ -11,5 +11,5 @@ data class User(
     val offers: MutableList<Offer> by lazy{ mutableListOf() }
     val orders: MutableList<Order> by lazy{ mutableListOf() }
     val favouriteMovies:MutableList<Int> by lazy{ mutableListOf() }
-    val favouriteTheatres:MutableList<Int> by lazy { mutableListOf()}
+    val favouriteTheatres:MutableList<Int> by lazy { mutableListOf() }
 }
