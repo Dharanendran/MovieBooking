@@ -11,6 +11,5 @@ data class Theatre(
     var city: String,
     val amenities: MutableList<Amenity> = mutableListOf(),
     val currentPlayingMovie: MutableList<CurrentPlayingMovie> = mutableListOf(),
-    var isFavourite:Boolean
 )
 

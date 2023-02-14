@@ -20,5 +20,4 @@ data class Movie(
     val musicDirector: String,
     val poster: Bitmap,
     val screen: Dimension,
-    var isFavourite: Boolean
-    )
+)
