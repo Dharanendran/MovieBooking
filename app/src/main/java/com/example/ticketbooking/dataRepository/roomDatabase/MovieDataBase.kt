@@ -4,10 +4,8 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import androidx.room.TypeConverters
 import com.example.ticketbooking.dataRepository.roomDatabase.daos.*
 import com.example.ticketbooking.dataRepository.roomDatabase.entities.*
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import kotlinx.coroutines.withContext
@@ -26,38 +24,44 @@ import kotlinx.coroutines.withContext
         ShowTime::class,
         Theatre::class,
         TheatreAmenityLinker::class,
-        UserCredential::class ],
-    version = 4
+        UserCredential::class,
+        FavouriteMovie::class,
+        FavouriteTheatre::class,
+        TicketNumber::class
+    ],
+    version = 5
 )
-abstract class MovieDataBase: RoomDatabase() {
+abstract class MovieDataBase : RoomDatabase() {
 
-    abstract fun getUserDao():UserDao
-    abstract fun getMovieDao():MovieDao
-    abstract fun getTheatreDao():TheatreDao
-    abstract fun getCurrentlyPlayingDao():CurrentlyPlayingDao
-    abstract fun getOfferDao():OfferDao
-    abstract fun getOrderDao():OrderDao
-    abstract fun getPaymentDao():PaymentDao
-    abstract fun getShowDao():ShowDao
-    abstract fun getDShowTimeDao():ShowTimeDao
-    abstract fun getTheatreAmenityDao():TheatreAmenityDao
-    abstract fun getUserCredentialDao():UserCredentialDao
-    abstract fun getAmenityDao():AmenityDao
-    abstract fun getBookingDao():BookingDao
+    abstract fun getUserDao(): UserDao
+    abstract fun getMovieDao(): MovieDao
+    abstract fun getTheatreDao(): TheatreDao
+    abstract fun getCurrentlyPlayingDao(): CurrentlyPlayingDao
+    abstract fun getOfferDao(): OfferDao
+    abstract fun getOrderDao(): OrderDao
+    abstract fun getPaymentDao(): PaymentDao
+    abstract fun getShowDao(): ShowDao
+    abstract fun getDShowTimeDao(): ShowTimeDao
+    abstract fun getTheatreAmenityDao(): TheatreAmenityDao
+    abstract fun getUserCredentialDao(): UserCredentialDao
+    abstract fun getAmenityDao(): AmenityDao
+    abstract fun getBookingDao(): BookingDao
+    abstract fun getFavouriteMovieDao(): FavouriteMovieDao
+    abstract fun getFavouriteTheatreDao(): FavouriteTheatreDao
+    abstract fun getTheatreNumberDao():TheatreNumberDao
 
-    companion object{
+    companion object {
         private val mutex = Mutex()
         private var instance: MovieDataBase? = null
 
-        class NoResponseException(msg:String): Exception(msg) {
+        class NoResponseException(msg: String) : Exception(msg) {
 
         }
 
-        suspend fun getInstance(applicationContext: Context):MovieDataBase?
-        {
-            instance?:let{
-                mutex.withLock{
-                    instance?:let{
+        suspend fun getInstance(applicationContext: Context): MovieDataBase? {
+            instance ?: let {
+                mutex.withLock {
+                    instance ?: let {
                         instance = Room.databaseBuilder(
                             applicationContext,
                             MovieDataBase::class.java,
