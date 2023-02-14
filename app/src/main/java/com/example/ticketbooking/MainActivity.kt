@@ -9,6 +9,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
+import android.view.WindowManager
 import android.widget.Button
 import android.widget.Toast
 import android.widget.ToggleButton
@@ -33,24 +34,15 @@ import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var bottomNavView:BottomNavigationView
-
-    private lateinit var navIconMovie:BottomNavigationItemView
-    private lateinit var navIconTheatre:BottomNavigationItemView
-    private lateinit var navIconOrder:BottomNavigationItemView
-    private lateinit var navIconProfile:BottomNavigationItemView
-
     lateinit var viewPager:ViewPager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-        val view = inflater.inflate(R.layout.fragment_login, null)
-        setContentView(view)
+        setContentView(R.layout.fragment_login)
 
-        val intent = Intent(this.applicationContext, SignInActivity::class.java)
-        startActivity(intent)
+//        val intent = Intent(this.applicationContext, SignInActivity::class.java)
+//        startActivity(intent)
 
     }
 
