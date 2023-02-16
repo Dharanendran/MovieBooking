@@ -58,7 +58,7 @@ abstract class MovieDataBase : RoomDatabase() {
 
         }
 
-        suspend fun getInstance(applicationContext: Context): MovieDataBase? {
+        suspend fun getInstance(applicationContext: Context): MovieDataBase {
             instance ?: let {
                 mutex.withLock {
                     instance ?: let {
@@ -71,7 +71,7 @@ abstract class MovieDataBase : RoomDatabase() {
                 }
             }
 
-            return instance
+            return instance as MovieDataBase
         }
     }
 }
