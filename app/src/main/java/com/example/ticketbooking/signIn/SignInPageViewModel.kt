@@ -18,10 +18,10 @@ class SignInPageViewModel() : ViewModel() {
     var toastMaker: ToastMaker? = null
     var repository: Repository? = null
 
-    var userName: MutableLiveData<String> = MutableLiveData("")
-    var passWord: MutableLiveData<String> = MutableLiveData("")
-    private var mIsLoginSuccessFull = MutableLiveData<Boolean>(false)
-    private var mIsProgressBarStarted = MutableLiveData(false)
+    val userName: MutableLiveData<String> by lazy{ MutableLiveData("") }
+    val passWord: MutableLiveData<String> by lazy { MutableLiveData("") }
+    private val mIsLoginSuccessFull by lazy{ MutableLiveData<Boolean>(false) }
+    private val mIsProgressBarStarted by lazy{ MutableLiveData(false) }
 
     fun isLoginSuccessFull(): LiveData<Boolean> = mIsLoginSuccessFull
     fun isProgressBarStarted(): LiveData<Boolean> = mIsProgressBarStarted

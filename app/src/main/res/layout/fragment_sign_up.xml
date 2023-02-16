@@ -1,6 +1,155 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.ticketbooking.signup.SignUpPageViewModel" />
+    </data>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="120dp"
+                android:src="@drawable/camera_icon"
+                app:layout_constraintEnd_toEndOf="@+id/profile_image_view"
+                app:layout_constraintHorizontal_bias="0.825"
+                app:layout_constraintStart_toStartOf="@+id/profile_image_view"
+                app:layout_constraintTop_toTopOf="@+id/profile_image_view" />
+
+            <ImageView
+                android:id="@+id/profile_image_view"
+                android:layout_width="0dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginBottom="60dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/profile_icon"
+                app:layout_constraintBottom_toTopOf="@+id/name_edit_text"
+                app:layout_constraintEnd_toEndOf="@+id/name_edit_text"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/name_edit_text"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/name_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:text="@string/name"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/name_edit_text"
+                app:layout_constraintEnd_toEndOf="@+id/name_edit_text"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/name_edit_text" />
+
+            <EditText
+                android:id="@+id/name_edit_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@={viewModel.name}"
+                android:layout_marginBottom="67dp"
+                android:background="@drawable/edit_text_background"
+                android:drawableStart="@drawable/name_icon"
+                android:drawablePadding="10dp"
+                android:hint="@string/enter_your_name"
+                android:maxLines="1"
+                android:singleLine="true"
+                app:layout_constraintBottom_toTopOf="@+id/mobile_number_edit_text"
+                app:layout_constraintEnd_toEndOf="@+id/mobile_number_edit_text"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/mobile_number_edit_text" />
+
+            <TextView
+                android:id="@+id/mobile_number_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:text="@string/mobile_number"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/mobile_number_edit_text"
+                app:layout_constraintEnd_toEndOf="@+id/mobile_number_edit_text"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/mobile_number_edit_text" />
+
+            <EditText
+                android:id="@+id/mobile_number_edit_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="64dp"
+                android:background="@drawable/edit_text_background"
+                android:drawableStart="@drawable/mobile_number_icon"
+                android:text="@{viewModel.mobileNo}"
+                android:drawablePadding="10dp"
+                android:hint="@string/enter_your_mobile_no"
+                android:inputType="phone"
+                android:maxLength="10"
+                android:maxLines="1"
+                app:layout_constraintBottom_toTopOf="@+id/mail_edit_text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/email_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:text="@string/email_id"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/mail_edit_text"
+                app:layout_constraintEnd_toEndOf="@+id/mail_edit_text"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/mail_edit_text" />
+
+            <EditText
+                android:id="@+id/mail_edit_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="252dp"
+                android:background="@drawable/edit_text_background"
+                android:drawableStart="@drawable/email_icon"
+                android:text="@{viewModel.emailId}"
+                android:drawablePadding="10dp"
+                android:hint="@string/enter_your_email"
+                android:maxLines="1"
+                android:singleLine="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/mobile_number_edit_text"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/mobile_number_edit_text" />
+
+            <Button
+                android:id="@+id/submit_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="64dp"
+                android:text="@string/submit"
+                android:onClick="@{()->viewModel.onClickCreateAccount()}"
+                app:layout_constraintEnd_toEndOf="@+id/mail_edit_text"
+                app:layout_constraintHorizontal_bias="0.557"
+                app:layout_constraintStart_toStartOf="@+id/mail_edit_text"
+                app:layout_constraintTop_toBottomOf="@+id/mail_edit_text" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

@@ -12,11 +12,10 @@ android {
     }
     defaultConfig {
         applicationId "com.example.ticketbooking"
-        minSdk 29 // room database need minimum sdk version of 26
+        minSdk 31 // room database need minimum sdk version of 26
         targetSdk 33
         versionCode 1
         versionName "1.0"
-
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 

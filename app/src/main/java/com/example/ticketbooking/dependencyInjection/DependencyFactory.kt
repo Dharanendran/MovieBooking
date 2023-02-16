@@ -3,6 +3,7 @@ package com.example.ticketbooking.dependencyInjection
 import android.content.Context
 import com.example.ticketbooking.dataRepository.roomDatabase.MovieDataBase
 import com.example.ticketbooking.signIn.SignInPageRepository
+import com.example.ticketbooking.signup.SignUpPageRepository
 
 class DependencyFactory private constructor(){
 
@@ -30,6 +31,6 @@ class DependencyFactory private constructor(){
     }
 
     fun getSignInPageRepository() = SignInPageRepository(context)
-
+    fun getSignUpPageRepository() = SignUpPageRepository(context)
 
 }

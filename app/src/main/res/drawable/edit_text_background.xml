@@ -5,8 +5,15 @@
     android:tint="@color/white">
 
     <stroke
-        android:width="2dp"
-        android:color="@color/black"/>
+        android:color="?colorPrimary"
+        android:width="2dp"/>
+
+    <padding
+        android:top="10dp"
+        android:bottom="10dp"
+        android:left="10dp"
+        android:right="10dp"/>
+
 
     <corners
         android:topRightRadius="4dp"

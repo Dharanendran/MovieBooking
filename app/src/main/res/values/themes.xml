@@ -13,5 +13,9 @@
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <item name="android:navigationBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <item name="android:windowSoftInputMode">adjustResize</item>
+        <item name="android:windowBackground">?colorPrimaryVariant</item>
+        <item name="android:textColor">?colorPrimary</item>
+
     </style>
 </resources>
