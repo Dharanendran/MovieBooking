@@ -8,7 +8,7 @@ import com.example.ticketbooking.dataRepository.roomDatabase.entities.User
 interface UserDao
 {
     @Query("SELECT * FROM USER_TABLE WHERE USER_TABLE.id=:id")
-    suspend fun getUser(id:Int):User
+    suspend fun getUser(id:Long):User
 
     @Query("SELECT * FROM USER_TABLE")
     suspend fun getUsers():List<User>

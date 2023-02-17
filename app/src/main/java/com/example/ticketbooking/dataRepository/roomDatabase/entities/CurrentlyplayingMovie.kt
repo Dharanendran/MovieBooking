@@ -15,8 +15,10 @@ import androidx.room.*
     ]
 )
 data class CurrentlyPlayingMovie(
-    @PrimaryKey(autoGenerate = true)
-    var id: Long = 0,
     var theatreId: Long,
     var date: String
 )
+{
+    @PrimaryKey(autoGenerate = true)
+    var id: Long = 0
+}

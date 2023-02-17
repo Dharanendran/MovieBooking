@@ -11,7 +11,7 @@
     <string name="dont_have_an_account">Don\'t have an account ? </string>
     <string name="sign_up"><u>Sign Up</u></string>
     <string name="login_page_slogan">Feel Boring ?, Just Try \n   Ticket New App</string>
-    <string name="hint_username">Mobile or Email</string>
+    <string name="hint_username"> Email</string>
     <string name="hint_password">Password</string>
     <string name="loading">Loading...</string>
     <string name="name">Name</string>
@@ -21,4 +21,7 @@
     <string name="email_id">Email Id</string>
     <string name="enter_your_email">Enter Your Email</string>
     <string name="submit">Submit</string>
+    <string name="password">Password</string>
+    <string name="enter_your_password">Enter Your Password</string>
+    <string name="re_enter_password">Re-Enter Password</string>
 </resources>

@@ -16,6 +16,7 @@
         <item name="android:windowSoftInputMode">adjustResize</item>
         <item name="android:windowBackground">?colorPrimaryVariant</item>
         <item name="android:textColor">?colorPrimary</item>
+<!--        <item name="android:windowNoTitle">true</item>-->
 
     </style>
 </resources>

@@ -1,11 +1,13 @@
 package com.example.ticketbooking
 
+import android.util.Log
+
 object ValidationUtil {
 
     fun isEmailValid(email:String):Boolean
     {
-        val validEmailString = "^[A-Za-z](.*)([@])(.+)(\\.)(.+)"
-        return validEmailString.toRegex().matches(email)
+        val validEmailString = "[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+        return validEmailString.toRegex().matches(email.trim())
     }
 
     fun isPhoneNumberValid(number:String):Boolean
@@ -19,6 +21,6 @@ object ValidationUtil {
             return true
         }
 
-        return number.length == 10 && !isAnyAlphaContains(number) && 6 <= number[0].toInt() && 10 > number[0].toInt()
+        return number.length == 10 && isAnyAlphaContains(number) && 6 <= number[0].toInt()
     }
 }

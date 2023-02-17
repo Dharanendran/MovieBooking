@@ -14,8 +14,10 @@ import androidx.room.*
 )
 
 class ShowTime(
-    @PrimaryKey(autoGenerate = true)
-    var id: Long = 0,
     var time: String,
     var showId: Long
 )
+{
+    @PrimaryKey(autoGenerate = true)
+    var id: Long = 0
+}

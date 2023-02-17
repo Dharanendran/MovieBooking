@@ -15,11 +15,13 @@ import androidx.room.*
 )
 
 class Order(
-    @PrimaryKey(autoGenerate = true)
-    var id: Long = 0,
     var userId: Long,
     var movieId: Long,
     var theatreId: Long,
     var paymentId: Long,
     var screenName: String
 )
+{
+    @PrimaryKey(autoGenerate = true)
+    var id: Long = 0
+}

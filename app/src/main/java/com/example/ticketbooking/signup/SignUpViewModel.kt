@@ -7,11 +7,13 @@ import com.example.ticketbooking.ValidationUtil
 import com.example.ticketbooking.dataRepository.roomDatabase.entities.User
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import java.util.UUID
 
 class SignUpPageViewModel : ViewModel() {
 
     interface Repository {
-        suspend fun createAccount(user: User, callback:(id:Long)->Unit)
+        suspend fun createAccount(user: User, callback: (id: Long) -> Unit)
+        suspend fun isUserNameExist(userName: String, callback: (isExist: Boolean) -> Unit)
     }
 
     interface ToastMaker {
@@ -27,32 +29,41 @@ class SignUpPageViewModel : ViewModel() {
 
     fun onClickCreateAccount() {
 
-        if (ValidationUtil.isEmailValid(emailId.value as String)) {
+        if (ValidationUtil.isEmailValid((emailId.value).toString())) {
 
-            if (ValidationUtil.isPhoneNumberValid(mobileNo.value as String)) {
+            if (ValidationUtil.isPhoneNumberValid((mobileNo.value).toString())) {
 
                 viewModelScope.launch(Dispatchers.IO) {
-                    repository?.createAccount(
-                        User(
-                            10,
-                            name.value as String,
-                            mobileNo.value as String,
-                            emailId.value as String,
-                            ""
-                        )
-                    ){
-                        viewModelScope.launch(Dispatchers.Main) {
-                            toastMaker?.makeToast(" SuccessFully Created, Your Id( $it ) ")
-                        }
+
+                    repository?.isUserNameExist(emailId.value.toString()) {
+                        if (!it)
+                            viewModelScope.launch(Dispatchers.IO) {
+
+                                repository?.createAccount(
+                                    User(
+                                        name.value.toString(),
+                                        mobileNo.value.toString(),
+                                        emailId.value.toString(),
+                                        ""
+                                    )
+                                ) {
+                                    viewModelScope.launch(Dispatchers.Main) {
+                                        toastMaker?.makeToast(
+                                            " Successfully Created"
+                                        )
+                                    }
+                                }
+                            }
+                        else
+                           viewModelScope.launch(Dispatchers.Main) { toastMaker?.makeToast("Username Already Exist !") }
                     }
                 }
             }
+
             else
                 toastMaker?.makeToast(" Enter Valid Mobile No !")
         }
-
         else
-            toastMaker?.makeToast(" Enter valid Email Id !")
-
+             toastMaker?.makeToast(" Enter valid Email Id !")
     }
 }

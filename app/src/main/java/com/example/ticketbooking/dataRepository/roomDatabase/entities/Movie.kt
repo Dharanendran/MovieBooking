@@ -7,8 +7,6 @@ import androidx.room.*
     tableName = "movie_table",
 )
 class Movie(
-    @PrimaryKey(autoGenerate = true)
-    var id: Long = 0,
     var movieName: String,
     var language: String,
     var sensorCertificate: String,
@@ -19,3 +17,7 @@ class Movie(
     var heroine: String?,
     var villain: String?,
 )
+{
+    @PrimaryKey(autoGenerate = true)
+    var id: Long = 0
+}

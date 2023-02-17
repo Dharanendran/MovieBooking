@@ -7,8 +7,13 @@ import com.example.ticketbooking.dependencyInjection.DependencyFactory
 class SignUpPageRepository( private val context:Context ):SignUpPageViewModel.Repository {
 
     override suspend fun createAccount(user: User, callback: (id: Long) -> Unit) {
-        val id:Long = DependencyFactory.getInstance(context).getDataBaseObject().getUserDao().insertUser(user)
+        val id = DependencyFactory.getInstance(context).getDataBaseObject().getUserDao().insertUser(user)
         callback(id)
+    }
+
+    override suspend fun isUserNameExist(userName: String, callback: (isExist: Boolean) -> Unit) {
+        val isExist = DependencyFactory.getInstance(context).getDataBaseObject().getUserCredentialDao().isUserNameExist(userName) == 1
+        callback(isExist)
     }
 
 }

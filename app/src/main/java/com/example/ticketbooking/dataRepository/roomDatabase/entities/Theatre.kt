@@ -6,11 +6,13 @@ import androidx.room.*
     tableName = "theatre_table",
 )
 class Theatre(
-    @PrimaryKey(autoGenerate = true)
-    var id: Long = 0,
     var theatreName: String,
     var doorNo: String,
     var street: String,
     var area: String,
     var city: String,
 )
+{
+    @PrimaryKey(autoGenerate = true)
+    var id: Long = 0
+}

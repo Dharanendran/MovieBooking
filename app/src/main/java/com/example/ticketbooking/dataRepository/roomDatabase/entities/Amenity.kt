@@ -6,9 +6,9 @@ private typealias TheatreAmenity =  com.example.ticketbooking.domain.businessMod
 
 @Entity(tableName = "amenity_table")
 
-data class Amenity(
+data class Amenity( var amenityName:String )
+{
     @PrimaryKey(autoGenerate = true)
-    var id:Long =0,
-    var amenityName:String
-    )
+    var id:Long = 0
+}
 

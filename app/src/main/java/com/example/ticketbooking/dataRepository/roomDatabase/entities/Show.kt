@@ -14,8 +14,6 @@ import androidx.room.*
     ]
 )
 class Show(
-    @PrimaryKey(autoGenerate = true)
-    var id: Long = 0,
     var currentlyPlayingMovieId: Long,
     var time: String,
     var normalSeatsCount: Int,
@@ -23,3 +21,7 @@ class Show(
     var normalSeatFare: Double,
     var luxurySeatFare: Double
 )
+{
+    @PrimaryKey(autoGenerate = true)
+    var id: Long = 0
+}

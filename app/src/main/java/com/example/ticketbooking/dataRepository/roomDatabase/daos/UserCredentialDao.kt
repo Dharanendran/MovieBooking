@@ -34,4 +34,8 @@ interface  UserCredentialDao {
 
     @Update
     suspend fun updateUserAccount(userCredential: UserCredential)
+
+    @Query("SELECT COUNT(*) FROM USER_CREDENTIAL_TABLE " +
+            "WHERE userName=:userName")
+    suspend fun isUserNameExist( userName:String ):Int
 }

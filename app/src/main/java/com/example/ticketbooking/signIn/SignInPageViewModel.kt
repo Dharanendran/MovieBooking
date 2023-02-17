@@ -22,11 +22,15 @@ class SignInPageViewModel() : ViewModel() {
     val passWord: MutableLiveData<String> by lazy { MutableLiveData("") }
     private val mIsLoginSuccessFull by lazy{ MutableLiveData<Boolean>(false) }
     private val mIsProgressBarStarted by lazy{ MutableLiveData(false) }
+    private val mIsGoogleSignInClicked by lazy{ MutableLiveData(false) }
+    private val mIsSignUpClicked by lazy{ MutableLiveData(false) }
 
     fun isLoginSuccessFull(): LiveData<Boolean> = mIsLoginSuccessFull
     fun isProgressBarStarted(): LiveData<Boolean> = mIsProgressBarStarted
+    fun isGoogleSignInClicked(): LiveData<Boolean> = mIsGoogleSignInClicked
+    fun isSignUpClicked(): LiveData<Boolean> = mIsSignUpClicked
 
-    fun signInClick() {
+    fun signInOnClick() {
 
 
         if ((userName.value as String).isEmpty() || (passWord.value as String).isEmpty()) {
@@ -53,6 +57,14 @@ class SignInPageViewModel() : ViewModel() {
                 }
             }
         }
+    }
+
+    fun signUpOnClick(){
+        mIsSignUpClicked.value = true
+    }
+
+    fun googleSignInOnClick() {
+        mIsGoogleSignInClicked.value = true
     }
 
     fun setIsLoginSuccessFull(value: Boolean) {

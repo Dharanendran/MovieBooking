@@ -20,9 +20,10 @@ import androidx.room.*
         )]
 )
 class Booking(
-    @PrimaryKey(autoGenerate = true)
-    var id: Long = 0,
     var showTimeId: Long,
     var userId: Long,
-    var seatNo: String
-)
+    var seatNo: String)
+{
+    @PrimaryKey(autoGenerate = true)
+    var id: Long = 0
+}

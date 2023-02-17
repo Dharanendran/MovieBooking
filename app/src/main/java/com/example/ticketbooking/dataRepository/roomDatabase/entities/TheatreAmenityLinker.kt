@@ -21,8 +21,10 @@ import androidx.room.*
 )
 
 class TheatreAmenityLinker(
-    @PrimaryKey(autoGenerate = true)
-    var id: Long = 0,
     var theatreId: Long,
     var amenityId: Long
 )
+{
+    @PrimaryKey(autoGenerate = true)
+    var id: Long = 0
+}

@@ -14,10 +14,13 @@ import androidx.room.PrimaryKey
             onDelete = ForeignKey.CASCADE)]
 )
 class UserCredential(
-    @PrimaryKey(autoGenerate = true)
-    var id:Long =0,
     var userId:Long ,// USERID MUST BE HERE ONLY,ONCE THE UN & PWD EXIST IT WILL RETURN USERID
     var userName:String,
     var password:String ,
 )
+{
+    @PrimaryKey(autoGenerate = true)
+    var id:Long =0
+}
+
 

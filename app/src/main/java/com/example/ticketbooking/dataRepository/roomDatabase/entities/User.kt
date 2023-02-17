@@ -6,10 +6,12 @@ import androidx.room.*
     tableName = "user_table",
 )
 class User(
-    @PrimaryKey(autoGenerate = true)
-    var id: Long = 0,
     var name: String,
     var phoneNO: String,
     var mailId: String,
     var profilePicture: String,
 )
+{
+    @PrimaryKey( autoGenerate = true )
+    var id: Long = 0
+}
