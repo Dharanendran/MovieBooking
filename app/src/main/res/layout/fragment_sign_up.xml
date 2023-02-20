@@ -7,7 +7,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.ticketbooking.signup.SignUpPageViewModel" />
+            type="com.example.ticketbooking.signup.presentation.SignUpPageViewModel" />
     </data>
 
 
@@ -66,14 +66,15 @@
                 android:id="@+id/name_edit_text"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="67dp"
+                android:layout_marginBottom="64dp"
                 android:background="@drawable/edit_text_background"
                 android:drawableStart="@drawable/name_icon"
                 android:drawablePadding="10dp"
                 android:hint="@string/enter_your_name"
-                android:maxLength="20"
+                android:maxLength="30"
                 android:maxLines="1"
                 android:singleLine="true"
+                android:focusedByDefault="true"
                 android:text="@={viewModel.name}"
                 app:layout_constraintBottom_toTopOf="@+id/mobile_number_edit_text"
                 app:layout_constraintEnd_toEndOf="@+id/mobile_number_edit_text"
@@ -160,49 +161,60 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="64dp"
                 android:drawablePadding="10dp"
+                android:maxLength="30"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:inputType="textPassword"
+                android:text="@={viewModel.password}"
                 android:background="@drawable/edit_text_background"
                 android:hint="@string/enter_your_password"
                 android:drawableStart="@drawable/password_icon"
-                app:layout_constraintBottom_toTopOf="@+id/editText2"
+                app:layout_constraintBottom_toTopOf="@+id/re_enter_password_edit_text"
                 app:layout_constraintEnd_toEndOf="@+id/mail_edit_text"
                 app:layout_constraintStart_toStartOf="@+id/mail_edit_text" />
 
             <EditText
-                android:id="@+id/editText2"
+                android:id="@+id/re_enter_password_edit_text"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
+                android:layout_marginBottom="40dp"
                 android:drawableStart="@drawable/password_icon"
                 android:drawablePadding="10dp"
+                android:maxLength="20"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:inputType="textPassword"
                 android:background="@drawable/edit_text_background"
-                android:hint="@string/re_enter_password"
+                android:hint="@string/re_enter_password_hint"
+                android:text="@={viewModel.reEnterPassword}"
                 app:layout_constraintBottom_toTopOf="@+id/submit_button"
                 app:layout_constraintEnd_toEndOf="@+id/password_edit_text"
                 app:layout_constraintStart_toStartOf="@+id/password_edit_text" />
 
 
             <TextView
-                android:id="@+id/textView5"
+                android:id="@+id/re_enter_password_text_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
                 android:text="@string/re_enter_password"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/editText2"
-                app:layout_constraintEnd_toEndOf="@+id/editText2"
+                app:layout_constraintBottom_toTopOf="@+id/re_enter_password_edit_text"
+                app:layout_constraintEnd_toEndOf="@+id/re_enter_password_edit_text"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/editText2" />
+                app:layout_constraintStart_toStartOf="@+id/re_enter_password_edit_text" />
 
             <Button
                 android:id="@+id/submit_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:onClick="@{()->viewModel.onClickCreateAccount()}"
+                android:onClick="@{()->viewModel.onClickSubmit()}"
+                android:layout_marginBottom="20dp"
                 android:text="@string/submit"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/editText2"
-                app:layout_constraintStart_toStartOf="@+id/editText2" />
+                app:layout_constraintEnd_toEndOf="@+id/re_enter_password_edit_text"
+                app:layout_constraintStart_toStartOf="@+id/re_enter_password_edit_text" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

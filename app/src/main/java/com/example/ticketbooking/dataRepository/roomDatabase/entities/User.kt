@@ -9,7 +9,7 @@ class User(
     var name: String,
     var phoneNO: String,
     var mailId: String,
-    var profilePicture: String,
+    var profilePicture: ByteArray?,
 )
 {
     @PrimaryKey( autoGenerate = true )

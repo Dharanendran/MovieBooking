@@ -8,7 +8,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.ticketbooking.signIn.SignInPageViewModel" />
+            type="com.example.ticketbooking.signIn.presentation.SignInPageViewModel" />
     </data>
 
     <LinearLayout

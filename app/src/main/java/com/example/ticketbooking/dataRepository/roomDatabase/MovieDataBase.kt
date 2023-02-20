@@ -29,7 +29,7 @@ import kotlinx.coroutines.withContext
         FavouriteTheatre::class,
         TicketNumber::class
     ],
-    version = 9
+    version = 10
 )
 abstract class MovieDataBase : RoomDatabase() {
 
