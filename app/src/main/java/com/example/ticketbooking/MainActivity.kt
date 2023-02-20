@@ -48,7 +48,10 @@ class MainActivity : AppCompatActivity(){
 
     override fun onBackPressed() {
         Toast.makeText(this, "backed",Toast.LENGTH_SHORT).show()
-        super.onBackPressed()
+        if(fragmentManager.getBackStackEntrtCount()>0)
+            fragmentManager.popBackStack()
+        else
+            super.onBackPressed()
     }
 }
 
