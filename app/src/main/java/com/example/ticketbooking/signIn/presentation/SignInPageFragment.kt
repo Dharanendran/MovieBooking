@@ -161,5 +161,13 @@ class SignInPageFragment : Fragment(), SignInPageViewModel.ToastMaker {
     override fun makeToast(message: String) { // also we can use Live data for this
         Toast.makeText(activityContext, message, Toast.LENGTH_SHORT).show()
     }
+    
+    override fun onBackPressed() {
+        Toast.makeText(this, "backed",Toast.LENGTH_SHORT).show()
+        if(fragmentManager.getBackStackEntrtCount()>0)
+            fragmentManager.popBackStack()
+        else
+            super.onBackPressed()
+    }
 
 }
